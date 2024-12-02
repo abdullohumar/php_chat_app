@@ -40,9 +40,10 @@
                         <input type="submit" value="Continue to Chat">
                     </div>
             </form>
-            <div class="link">Already signed up? <a href="login.html">Login Now</a></div>
+            <div class="link">Already signed up? <a href="login.php">Login Now</a></div>
         </section>
     </div>
     <script src="javascript/pass-show-hide.js"></script>
+    <script src="javascript/signup.js"></script>
 </body>
 </html>
