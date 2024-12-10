@@ -15,6 +15,7 @@ sendButton.onclick = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         inputField.value = "";
+        scrollToBottom();
       }
     }
   };
@@ -22,6 +23,15 @@ sendButton.onclick = () => {
   let formData = new FormData(form); //creating new formData object
   xhr.send(formData); //sending the form data to php
 };
+
+chatBox.onmouseenter = () => {
+  chatBox.classList.add("active");
+};
+
+chatBox.onmouseleave = () => {
+  chatBox.classList.remove("active");
+};
+
 
 setInterval(() => {
   // let's start Ajax
@@ -32,6 +42,9 @@ setInterval(() => {
       if (xhr.status === 200) {
         let data = xhr.response;
         chatBox.innerHTML = data;
+        if(!chatBox.classList.contains("active")){
+          scrollToBottom();
+        }
       }
     }
   }
@@ -40,3 +53,7 @@ setInterval(() => {
   let formData = new FormData(form); //creating new formData object
   xhr.send(formData); //sending the form data to php
 }, 500);
+
+function scrollToBottom(){
+  chatBox.scrollTop = chatBox.scrollHeight;
+} 
